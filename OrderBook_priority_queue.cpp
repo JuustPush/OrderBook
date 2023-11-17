@@ -44,7 +44,7 @@ public:
     bool add_order(const Order& order) {
         if (order.type == OrderType::Buy) {
             if (!sell_orders.empty() && order.price >= sell_orders.top().price) {
-                std::cout << "Îøèáêà: Âû ïîêóïàåòå òîâàð äîðîæå, ÷åì ìèíèìàëüíàÿ öåíà â ïðîäàæå" << std::endl;
+                std::cout << "ÐžÑˆÐ¸Ð±ÐºÐ°: Ð’Ñ‹ Ð¿Ð¾ÐºÑƒÐ¿Ð°ÐµÑ‚Ðµ Ñ‚Ð¾Ð²Ð°Ñ€ Ð´Ð¾Ñ€Ð¾Ð¶Ðµ, Ñ‡ÐµÐ¼ Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð°Ñ Ñ†ÐµÐ½Ð° Ð² Ð¿Ñ€Ð¾Ð´Ð°Ð¶Ðµ" << std::endl;
                 return false;
             }
             else {
@@ -54,7 +54,7 @@ public:
         }
         else if (order.type == OrderType::Sell) {
             if (!buy_orders.empty() && order.price <= buy_orders.top().price) {
-                std::cout << "Îøèáêà: Âû ïðîäàåòå òîâàð äåøåâëå, ÷åì ìàêñèìàëüíàÿ öåíà â ïîêóïêå" << std::endl;
+                std::cout << "ÐžÑˆÐ¸Ð±ÐºÐ°: Ð’Ñ‹ Ð¿Ñ€Ð¾Ð´Ð°ÐµÑ‚Ðµ Ñ‚Ð¾Ð²Ð°Ñ€ Ð´ÐµÑˆÐµÐ²Ð»Ðµ, Ñ‡ÐµÐ¼ Ð¼Ð°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð°Ñ Ñ†ÐµÐ½Ð° Ð² Ð¿Ð¾ÐºÑƒÐ¿ÐºÐµ" << std::endl;
                 return false;
             }
             else {
@@ -123,7 +123,7 @@ public:
                 if (remove_order(old_order)) 
                 {
                     if (add_order(new_order))    
-                        std::cout << "Çàÿâêà óñïåøíî èçìåíåíà" << std::endl;
+                        std::cout << "Ð—Ð°ÑÐ²ÐºÐ° ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð°" << std::endl;
                     else
                     {
                         add_order(old_order);
@@ -131,7 +131,7 @@ public:
                 }
             }
             else {
-                std::cout << "Íå íàéäåí ýëåìåíò äëÿ èçìåíåíèÿ" << std::endl;
+                std::cout << "ÐÐµ Ð½Ð°Ð¹Ð´ÐµÐ½ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð´Ð»Ñ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ" << std::endl;
             }
         }
         else if (old_order.type == OrderType::Sell) {
@@ -155,7 +155,7 @@ public:
                 if (remove_order(old_order)) 
                 {
                     if (add_order(new_order))   
-                        std::cout << "Çàÿâêà óñïåøíî èçìåíåíà" << std::endl;
+                        std::cout << "Ð—Ð°ÑÐ²ÐºÐ° ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð°" << std::endl;
                     else
                     {
                         add_order(old_order);
@@ -163,7 +163,7 @@ public:
                 }
             }
             else {
-                std::cout << "Íå íàéäåí ýëåìåíò äëÿ èçìåíåíèÿ" << std::endl;
+                std::cout << "ÐÐµ Ð½Ð°Ð¹Ð´ÐµÐ½ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð´Ð»Ñ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ" << std::endl;
             }
         }
     }
@@ -188,7 +188,7 @@ public:
                 temp.pop();
             }
             if (!found) {
-                std::cout << "Çàÿâêà íå íàéäåíà" << std::endl;
+                std::cout << "Ð—Ð°ÑÐ²ÐºÐ° Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ð°" << std::endl;
                 return false;
             }
         }
@@ -209,12 +209,12 @@ public:
                 temp.pop();
             }
             if (!found) {
-                std::cout << "Çàÿâêà íå íàéäåíà" << std::endl;
+                std::cout << "Ð—Ð°ÑÐ²ÐºÐ° Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ð°" << std::endl;
                 return false;
             }
         }
 
-        std::cout << "Çàÿâêà óñïåøíî óäàëåíà" << std::endl;
+        std::cout << "Ð—Ð°ÑÐ²ÐºÐ° ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ ÑƒÐ´Ð°Ð»ÐµÐ½Ð°" << std::endl;
         return true;
     }
 
@@ -235,13 +235,13 @@ public:
         reverse(temp_sell_vector.begin(), temp_sell_vector.end());
         for (const auto& it : temp_sell_vector)
         {
-            std::cout << "Öåíà: " << it.price << ", Îáúåì: " << it.volume << ", Òèï: Ïðîäàæà\n";
+            std::cout << "Ð¦ÐµÐ½Ð°: " << it.price << ", ÐžÐ±ÑŠÐµÐ¼: " << it.volume << ", Ð¢Ð¸Ð¿: ÐŸÑ€Ð¾Ð´Ð°Ð¶Ð°\n";
         }
 
         int buy_count = 0;
         while (buy_count < 5 && !temp_buy_orders.empty()) {
             const Order& order = temp_buy_orders.top();
-            std::cout << "Öåíà: " << order.price << ", Îáúåì: " << order.volume << ", Òèï: Ïîêóïêà\n";
+            std::cout << "Ð¦ÐµÐ½Ð°: " << order.price << ", ÐžÐ±ÑŠÐµÐ¼: " << order.volume << ", Ð¢Ð¸Ð¿: ÐŸÐ¾ÐºÑƒÐ¿ÐºÐ°\n";
             temp_buy_orders.pop();
             buy_count++;
         }
@@ -274,36 +274,36 @@ public:
         order_book.add_order({ 205.0, 20, OrderType::Sell });
 
 
-        std::cout << "Ëó÷øèå 10 çàÿâîê:\n";
+        std::cout << "Ð›ÑƒÑ‡ÑˆÐ¸Ðµ 10 Ð·Ð°ÑÐ²Ð¾Ðº:\n";
         order_book.display_top_10_orders();
 
         Order new_order1(200, 1565, OrderType::Sell);
         order_book.change_order({ 200.0, 3, OrderType::Sell }, new_order1);
 
-        std::cout << "\nÓäàëÿåì ýëåìåíò ñ öåíîé 201, îáúåìîì 20, Òèï <Ïðîäàæà>\n";
+        std::cout << "\nÐ£Ð´Ð°Ð»ÑÐµÐ¼ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ñ Ñ†ÐµÐ½Ð¾Ð¹ 201, Ð¾Ð±ÑŠÐµÐ¼Ð¾Ð¼ 20, Ð¢Ð¸Ð¿ <ÐŸÑ€Ð¾Ð´Ð°Ð¶Ð°>\n";
 
         order_book.remove_order({ 201.0, 20, OrderType::Sell });
 
-        std::cout << "\nÎáíîâëåííûå ëó÷øèå 10 çàÿâîê:\n";
+        std::cout << "\nÐžÐ±Ð½Ð¾Ð²Ð»ÐµÐ½Ð½Ñ‹Ðµ Ð»ÑƒÑ‡ÑˆÐ¸Ðµ 10 Ð·Ð°ÑÐ²Ð¾Ðº:\n";
         start_display = std::chrono::steady_clock::now();
         order_book.display_top_10_orders();
         end_display = std::chrono::steady_clock::now();
     }
 
     void AddOrder(double p, int v, int t) {
-        if (t > 1 || t < 0) std::cout << "\níåïðàâèëüíûé ââîä îïåðàöèè ïîêóïêà/ïðîäàæà\n";
+        if (t > 1 || t < 0) std::cout << "\nÐ½ÐµÐ¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ñ‹Ð¹ Ð²Ð²Ð¾Ð´ Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸Ð¸ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ°/Ð¿Ñ€Ð¾Ð´Ð°Ð¶Ð°\n";
         order_book.add_order({ p, v, static_cast<OrderType>(t) });
     }
 
     void ChangeOrder(double p_old, int v_old, int t_old, double p_new, int v_new, int t_new) {
         if ((t_old > 1 || t_old < 0) && (t_new > 1 || t_new < 0))
-            std::cout << "\níåïðàâèëüíûé ââîä îïåðàöèè ïîêóïêà/ïðîäàæà\n";
+            std::cout << "\nÐ½ÐµÐ¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ñ‹Ð¹ Ð²Ð²Ð¾Ð´ Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸Ð¸ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ°/Ð¿Ñ€Ð¾Ð´Ð°Ð¶Ð°\n";
         order_book.change_order({ p_old, v_old, static_cast<OrderType>(t_old) },
             { p_new, v_new, static_cast<OrderType>(t_new) });
     }
 
     void RemoveOrder(double p, int v, int t) {
-        if (t > 1 || t < 0) std::cout << "\níåïðàâèëüíûé ââîä îïåðàöèè ïîêóïêà/ïðîäàæà\n";
+        if (t > 1 || t < 0) std::cout << "\nÐ½ÐµÐ¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ñ‹Ð¹ Ð²Ð²Ð¾Ð´ Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸Ð¸ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ°/Ð¿Ñ€Ð¾Ð´Ð°Ð¶Ð°\n";
         order_book.remove_order({ p, v, static_cast<OrderType>(t) });
     }
 
@@ -319,25 +319,25 @@ public:
         order_book.add_order(order);
         auto end = std::chrono::steady_clock::now();
         auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
-        std::cout << "\nÂðåìÿ äîáàâëåíèÿ çàÿâêè: " << duration << " ìèêðîñåêóíä\n";
+        std::cout << "\nÐ’Ñ€ÐµÐ¼Ñ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ñ Ð·Ð°ÑÐ²ÐºÐ¸: " << duration << " Ð¼Ð¸ÐºÑ€Ð¾ÑÐµÐºÑƒÐ½Ð´\n";
 
         // Measure the time taken to change an order
         start = std::chrono::steady_clock::now();
         order_book.change_order({ 100.0, 10, OrderType::Buy }, { 100.0, 43, OrderType::Buy });
         end = std::chrono::steady_clock::now();
         duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
-        std::cout << "\nÂðåìÿ èçìåíåíèÿ çàÿêè: " << duration << " ìèêðîñåêóíä\n";
+        std::cout << "\nÐ’Ñ€ÐµÐ¼Ñ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ Ð·Ð°ÑÐºÐ¸: " << duration << " Ð¼Ð¸ÐºÑ€Ð¾ÑÐµÐºÑƒÐ½Ð´\n";
 
         // Measure the time taken to remove an order
         start = std::chrono::steady_clock::now();
         order_book.remove_order({ 100.0, 43, OrderType::Buy });
         end = std::chrono::steady_clock::now();
         duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
-        std::cout << "\nÂðåìÿ óäàëåíèÿ çàÿâêè: " << duration << " ìèêðîñåêóíä\n";
+        std::cout << "\nÐ’Ñ€ÐµÐ¼Ñ ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ñ Ð·Ð°ÑÐ²ÐºÐ¸: " << duration << " Ð¼Ð¸ÐºÑ€Ð¾ÑÐµÐºÑƒÐ½Ð´\n";
 
         // Measure the time taken to display the top 10 orders
         duration = std::chrono::duration_cast<std::chrono::microseconds>(end_display - start_display).count();
-        std::cout << "\nÂðåìÿ ïîêàçà 10 ëó÷øèõ çàÿâîê: " << duration << " ìèêðîñåêóíä\n";
+        std::cout << "\nÐ’Ñ€ÐµÐ¼Ñ Ð¿Ð¾ÐºÐ°Ð·Ð° 10 Ð»ÑƒÑ‡ÑˆÐ¸Ñ… Ð·Ð°ÑÐ²Ð¾Ðº: " << duration << " Ð¼Ð¸ÐºÑ€Ð¾ÑÐµÐºÑƒÐ½Ð´\n";
     }
 };
 
@@ -349,12 +349,12 @@ int main() {
     tester.measure_performance();
 
     while (1) {
-        std::cout << "\nÂûáåðèòå äåéñòâèå:\n 1) Äîáàâèòü çàÿâêó\n 2) Èçìåíèòü çàÿâêó\n 3) Óäàëèòü çàÿâêó\n 4) Îòîáðàçèòü ëó÷øèå 10 çàÿâîê\n 5) Ïðîâåðèòü ñêîðîñòü \n 6) Âûéòè èç ïðîãðàììû\n";
+        std::cout << "\nÐ’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ:\n 1) Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð·Ð°ÑÐ²ÐºÑƒ\n 2) Ð˜Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ Ð·Ð°ÑÐ²ÐºÑƒ\n 3) Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ Ð·Ð°ÑÐ²ÐºÑƒ\n 4) ÐžÑ‚Ð¾Ð±Ñ€Ð°Ð·Ð¸Ñ‚ÑŒ Ð»ÑƒÑ‡ÑˆÐ¸Ðµ 10 Ð·Ð°ÑÐ²Ð¾Ðº\n 5) ÐŸÑ€Ð¾Ð²ÐµÑ€Ð¸Ñ‚ÑŒ ÑÐºÐ¾Ñ€Ð¾ÑÑ‚ÑŒ \n 6) Ð’Ñ‹Ð¹Ñ‚Ð¸ Ð¸Ð· Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ñ‹\n";
         int choice;
         std::cin >> choice;
 
         if (std::cin.fail()) {
-            std::cout << "Îøèáêà ââîäà. Ïîæàëóéñòà, ââåäèòå ÷èñëî.\n";
+            std::cout << "ÐžÑˆÐ¸Ð±ÐºÐ° Ð²Ð²Ð¾Ð´Ð°. ÐŸÐ¾Ð¶Ð°Ð»ÑƒÐ¹ÑÑ‚Ð°, Ð²Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¾.\n";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             continue;
@@ -364,11 +364,11 @@ int main() {
             double price;
             int volume;
             int type;
-            std::cout << "\nÂâåäèòå öåíó\n";
+            std::cout << "\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ†ÐµÐ½Ñƒ\n";
             std::cin >> price;
-            std::cout << "\nÂâåäèòå îáúåì:\n";
+            std::cout << "\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¾Ð±ÑŠÐµÐ¼:\n";
             std::cin >> volume;
-            std::cout << "\nÂâåäèòå òèï ïîêóïêà èëè ïðîäàæà, ãäå 0 - ïîêóïêà, 1 - ïðîäàæà\n";
+            std::cout << "\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‚Ð¸Ð¿ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ° Ð¸Ð»Ð¸ Ð¿Ñ€Ð¾Ð´Ð°Ð¶Ð°, Ð³Ð´Ðµ 0 - Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ°, 1 - Ð¿Ñ€Ð¾Ð´Ð°Ð¶Ð°\n";
             std::cin >> type;
             tester.AddOrder(price, volume, type);
             break;
@@ -376,17 +376,17 @@ int main() {
             double price_old,price_new;
             int value_old,value_new;
             int type_old,type_new;
-            std::cout << "\nÂâåäèòå öåíó ýëåìåíòà êîòîðûé íóæíî èçìåíèòü\n";
+            std::cout << "\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ†ÐµÐ½Ñƒ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ Ð½ÑƒÐ¶Ð½Ð¾ Ð¸Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ\n";
             std::cin >> price_old;
-            std::cout << "\nÂâåäèòå îáúåì ýëåìåíòà êîòîðûé íóæíî èçìåíèòü\n";
+            std::cout << "\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¾Ð±ÑŠÐµÐ¼ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ Ð½ÑƒÐ¶Ð½Ð¾ Ð¸Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ\n";
             std::cin >> value_old;
-            std::cout << "\nÂâåäèòå òèï ïîêóïêà èëè ïðîäàæà, ãäå 0 - ïîêóïêà, 1 - ïðîäàæà ýëåìåíòà êîòîðûé íóæíî èçìåíèòü\n";
+            std::cout << "\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‚Ð¸Ð¿ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ° Ð¸Ð»Ð¸ Ð¿Ñ€Ð¾Ð´Ð°Ð¶Ð°, Ð³Ð´Ðµ 0 - Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ°, 1 - Ð¿Ñ€Ð¾Ð´Ð°Ð¶Ð° ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ Ð½ÑƒÐ¶Ð½Ð¾ Ð¸Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ\n";
             std::cin >> type_old;
-            std::cout << "\nÂâåäèòå íîâîå çíà÷åíèå öåíû\n";
+            std::cout << "\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð¾Ð²Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ñ†ÐµÐ½Ñ‹\n";
             std::cin >> price_new;
-            std::cout << "\nÂâåäèòå íîâîå çíà÷åíèå îáúåìà\n";
+            std::cout << "\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð¾Ð²Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¾Ð±ÑŠÐµÐ¼Ð°\n";
             std::cin >> value_new;
-            std::cout << "\nÂâåäèòå íîâûé òèï ïîêóïêà èëè ïðîäàæà, ãäå 0 - ïîêóïêà, 1 - ïðîäàæà \n";
+            std::cout << "\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð¾Ð²Ñ‹Ð¹ Ñ‚Ð¸Ð¿ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ° Ð¸Ð»Ð¸ Ð¿Ñ€Ð¾Ð´Ð°Ð¶Ð°, Ð³Ð´Ðµ 0 - Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ°, 1 - Ð¿Ñ€Ð¾Ð´Ð°Ð¶Ð° \n";
             std::cin >> type_new;
             tester.ChangeOrder(price_old, value_old, type_old, price_new, value_new, type_new);
             break;
@@ -394,11 +394,11 @@ int main() {
             price;
             volume;
             type;
-            std::cout << "\nÂâåäèòå öåíó\n";
+            std::cout << "\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ†ÐµÐ½Ñƒ\n";
             std::cin >> price;
-            std::cout << "\nÂâåäèòå îáúåì\n";
+            std::cout << "\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¾Ð±ÑŠÐµÐ¼\n";
             std::cin >> volume;
-            std::cout << "\nÂâåäèòå òèï ïîêóïêà èëè ïðîäàæà, ãäå 0 - ïîêóïêà, 1 - ïðîäàæà\n";
+            std::cout << "\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‚Ð¸Ð¿ Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ° Ð¸Ð»Ð¸ Ð¿Ñ€Ð¾Ð´Ð°Ð¶Ð°, Ð³Ð´Ðµ 0 - Ð¿Ð¾ÐºÑƒÐ¿ÐºÐ°, 1 - Ð¿Ñ€Ð¾Ð´Ð°Ð¶Ð°\n";
             std::cin >> type;
             tester.RemoveOrder(price, volume, type);
             break;
@@ -411,7 +411,7 @@ int main() {
         case 6:
             return 0;
         default:
-            std::cout << "Íåêîððåêòíûé âûáîð. Ïîïðîáóéòå åùå ðàç.\n";
+            std::cout << "ÐÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ñ‹Ð¹ Ð²Ñ‹Ð±Ð¾Ñ€. ÐŸÐ¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ðµ Ñ€Ð°Ð·.\n";
         }
     }
 

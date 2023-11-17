@@ -42,12 +42,12 @@ public:
                 });
 
             if (it != orders.end()) {
-                std::cout << "Ошибка: Вы покупаете товар дороже, чем минимальная цена в продаже" << std::endl;
+                std::cout << "РћС€РёР±РєР°: Р’С‹ РїРѕРєСѓРїР°РµС‚Рµ С‚РѕРІР°СЂ РґРѕСЂРѕР¶Рµ, С‡РµРј РјРёРЅРёРјР°Р»СЊРЅР°СЏ С†РµРЅР° РІ РїСЂРѕРґР°Р¶Рµ" << std::endl;
                 return false;
             }
             else {
                 orders.emplace(order.price, order);
-                std::cout << "Заявка на покупку одобрена" << std::endl;
+                std::cout << "Р—Р°СЏРІРєР° РЅР° РїРѕРєСѓРїРєСѓ РѕРґРѕР±СЂРµРЅР°" << std::endl;
                 return true;
             }
         }
@@ -57,12 +57,12 @@ public:
                 });
 
             if (it != orders.end()) {
-                std::cout << "Ошибка: Вы продаете товар дешевле, чем максимальная цена в покупке" << std::endl;
+                std::cout << "РћС€РёР±РєР°: Р’С‹ РїСЂРѕРґР°РµС‚Рµ С‚РѕРІР°СЂ РґРµС€РµРІР»Рµ, С‡РµРј РјР°РєСЃРёРјР°Р»СЊРЅР°СЏ С†РµРЅР° РІ РїРѕРєСѓРїРєРµ" << std::endl;
                 return false;
             }
             else {
                 orders.emplace(order.price, order);
-                std::cout << "Заявка на продажу одобрена" << std::endl;
+                std::cout << "Р—Р°СЏРІРєР° РЅР° РїСЂРѕРґР°Р¶Сѓ РѕРґРѕР±СЂРµРЅР°" << std::endl;
                 return true;
             }
         }
@@ -78,12 +78,12 @@ public:
             
             if (add_order(new_order))
             {
-                std::cout << "Заявка успешно изменена" << std::endl;
+                std::cout << "Р—Р°СЏРІРєР° СѓСЃРїРµС€РЅРѕ РёР·РјРµРЅРµРЅР°" << std::endl;
                 orders.erase(it);
             }
         }
         else {
-            std::cout << "Ошибка: Не удалось найти заявку для изменения" << std::endl;
+            std::cout << "РћС€РёР±РєР°: РќРµ СѓРґР°Р»РѕСЃСЊ РЅР°Р№С‚Рё Р·Р°СЏРІРєСѓ РґР»СЏ РёР·РјРµРЅРµРЅРёСЏ" << std::endl;
         }
     }
 
@@ -92,15 +92,15 @@ public:
 
         if (it != orders.end() && it->second == order) {
             orders.erase(it);
-            std::cout << "Заявка успешно удалена" << std::endl;
+            std::cout << "Р—Р°СЏРІРєР° СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅР°" << std::endl;
         }
         else {
-            std::cout << "Ошибка: заявка не найдена" << std::endl;
+            std::cout << "РћС€РёР±РєР°: Р·Р°СЏРІРєР° РЅРµ РЅР°Р№РґРµРЅР°" << std::endl;
         }
     }
 
     void display_top_10_orders() {
-        // Отсортировать заявки по цене и типу
+        // РћС‚СЃРѕСЂС‚РёСЂРѕРІР°С‚СЊ Р·Р°СЏРІРєРё РїРѕ С†РµРЅРµ Рё С‚РёРїСѓ
         std::vector<Order> sell_orders;
         std::vector<Order> buy_orders;
 
@@ -124,13 +124,13 @@ public:
         if (!sell_orders.empty())
             for (int i = std::min(4, static_cast<int>(sell_orders.size())); i >= 0; --i) {
                 const Order& order = sell_orders[i];
-                std::cout << "Цена: " << order.price << ", Объем: " << order.volume << ", Тип: Продажа\n";
+                std::cout << "Р¦РµРЅР°: " << order.price << ", РћР±СЉРµРј: " << order.volume << ", РўРёРї: РџСЂРѕРґР°Р¶Р°\n";
             }
 
         if (!buy_orders.empty())
             for (int i = 0; i < std::min(5, static_cast<int>(buy_orders.size())); ++i) {
                 const Order& order = buy_orders[i];
-                std::cout << "Цена: " << order.price << ", Объем: " << order.volume << ", Тип: Покупка\n";
+                std::cout << "Р¦РµРЅР°: " << order.price << ", РћР±СЉРµРј: " << order.volume << ", РўРёРї: РџРѕРєСѓРїРєР°\n";
             }
     }
 
@@ -145,7 +145,7 @@ private:
 public:
 public:
     OrderBookTester() {
-        // Добавить заявки
+        // Р”РѕР±Р°РІРёС‚СЊ Р·Р°СЏРІРєРё
         order_book.add_order({ 100.0, 10, OrderType::Buy });
         order_book.add_order({ 200.0, 20, OrderType::Sell });
         order_book.add_order({ 150.0, 15, OrderType::Buy });
@@ -161,37 +161,37 @@ public:
         order_book.add_order({ 204.0, 20, OrderType::Sell });
         order_book.add_order({ 205.0, 20, OrderType::Sell });
 
-        // Отобразить первые 10 заявок
-        std::cout << "Лучшие 10 заявок:\n";
+        // РћС‚РѕР±СЂР°Р·РёС‚СЊ РїРµСЂРІС‹Рµ 10 Р·Р°СЏРІРѕРє
+        std::cout << "Р›СѓС‡С€РёРµ 10 Р·Р°СЏРІРѕРє:\n";
         order_book.display_top_10_orders();
 
-        // Изменить заявку
+        // РР·РјРµРЅРёС‚СЊ Р·Р°СЏРІРєСѓ
         Order new_order1(200, 1565, OrderType::Sell);
         order_book.change_order({ 200.0, 3, OrderType::Sell }, new_order1);
 
-        std::cout << "\nУдаляем элемент с ценой 201, объемом 20, Тип <Продажа>\n";
-        // Удалить заявку
+        std::cout << "\nРЈРґР°Р»СЏРµРј СЌР»РµРјРµРЅС‚ СЃ С†РµРЅРѕР№ 201, РѕР±СЉРµРјРѕРј 20, РўРёРї <РџСЂРѕРґР°Р¶Р°>\n";
+        // РЈРґР°Р»РёС‚СЊ Р·Р°СЏРІРєСѓ
         order_book.remove_order({ 201.0, 20, OrderType::Sell });
 
-        // Отобразить обновленные первые 10 заявок
-        std::cout << "\nОбновленные лучшие 10 заявок:\n";
+        // РћС‚РѕР±СЂР°Р·РёС‚СЊ РѕР±РЅРѕРІР»РµРЅРЅС‹Рµ РїРµСЂРІС‹Рµ 10 Р·Р°СЏРІРѕРє
+        std::cout << "\nРћР±РЅРѕРІР»РµРЅРЅС‹Рµ Р»СѓС‡С€РёРµ 10 Р·Р°СЏРІРѕРє:\n";
         start_display = std::chrono::steady_clock::now();
         order_book.display_top_10_orders();
         end_display = std::chrono::steady_clock::now();
     }
 
     void AddOrder(double p, int v, int t) {
-        if (t > 1 || t < 0) std::cout << "\nнеправильный ввод операции покупка/продажа\n";
+        if (t > 1 || t < 0) std::cout << "\nРЅРµРїСЂР°РІРёР»СЊРЅС‹Р№ РІРІРѕРґ РѕРїРµСЂР°С†РёРё РїРѕРєСѓРїРєР°/РїСЂРѕРґР°Р¶Р°\n";
         order_book.add_order({ p,v,(OrderType)t });
     }
 
     void ChangeOrder(double p_old, int v_old, int t_old, double p_new, int v_new, int t_new) {
-        if ((t_old > 1 || t_old < 0) && (t_new > 1 || t_new < 0)) std::cout << "\nнеправильный ввод операции покупка/продажа\n";
+        if ((t_old > 1 || t_old < 0) && (t_new > 1 || t_new < 0)) std::cout << "\nРЅРµРїСЂР°РІРёР»СЊРЅС‹Р№ РІРІРѕРґ РѕРїРµСЂР°С†РёРё РїРѕРєСѓРїРєР°/РїСЂРѕРґР°Р¶Р°\n";
         order_book.change_order({ p_old,v_old,(OrderType)t_old }, { p_new,v_new,(OrderType)t_new });
     }
 
     void RemoveOrder(double p, int v, int t) {
-        if (t > 1 || t < 0) std::cout << "\nнеправильный ввод операции покупка/продажа\n";
+        if (t > 1 || t < 0) std::cout << "\nРЅРµРїСЂР°РІРёР»СЊРЅС‹Р№ РІРІРѕРґ РѕРїРµСЂР°С†РёРё РїРѕРєСѓРїРєР°/РїСЂРѕРґР°Р¶Р°\n";
         order_book.remove_order({ p,v,(OrderType)t });
     }
 
@@ -202,51 +202,51 @@ public:
     void measure_performance() {
         Order order(100.0, 10, OrderType::Buy);
 
-        // Измерить время выполнения добавления заявки
+        // РР·РјРµСЂРёС‚СЊ РІСЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ РґРѕР±Р°РІР»РµРЅРёСЏ Р·Р°СЏРІРєРё
         auto start = std::chrono::steady_clock::now();
         order_book.add_order(order);
         auto end = std::chrono::steady_clock::now();
         auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
-        std::cout << "\nВремя добавления заявки: " << duration << " микросекунд\n";
+        std::cout << "\nР’СЂРµРјСЏ РґРѕР±Р°РІР»РµРЅРёСЏ Р·Р°СЏРІРєРё: " << duration << " РјРёРєСЂРѕСЃРµРєСѓРЅРґ\n";
 
-        // Измерить время выполнения изменения заявки
+        // РР·РјРµСЂРёС‚СЊ РІСЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ РёР·РјРµРЅРµРЅРёСЏ Р·Р°СЏРІРєРё
         start = std::chrono::steady_clock::now();
         order_book.change_order({ 100.0, 10, OrderType::Buy }, { 100.0, 43, OrderType::Buy });
         end = std::chrono::steady_clock::now();
         duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
-        std::cout << "\nВремя изменения заявки: " << duration << " микросекунд\n";
+        std::cout << "\nР’СЂРµРјСЏ РёР·РјРµРЅРµРЅРёСЏ Р·Р°СЏРІРєРё: " << duration << " РјРёРєСЂРѕСЃРµРєСѓРЅРґ\n";
 
-        // Измерить время выполнения удаления заявки
+        // РР·РјРµСЂРёС‚СЊ РІСЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ СѓРґР°Р»РµРЅРёСЏ Р·Р°СЏРІРєРё
         start = std::chrono::steady_clock::now();
         order_book.remove_order({ 100.0, 43, OrderType::Buy });
         end = std::chrono::steady_clock::now();
         duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
-        std::cout << "\nВремя удаления заявки: " << duration << " микросекунд\n";
+        std::cout << "\nР’СЂРµРјСЏ СѓРґР°Р»РµРЅРёСЏ Р·Р°СЏРІРєРё: " << duration << " РјРёРєСЂРѕСЃРµРєСѓРЅРґ\n";
 
-        // Измерить время выполнения отображения 10 лучших заявок
+        // РР·РјРµСЂРёС‚СЊ РІСЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ 10 Р»СѓС‡С€РёС… Р·Р°СЏРІРѕРє
         duration = std::chrono::duration_cast<std::chrono::microseconds>(end_display - start_display).count();
-        std::cout << "\nВремя показа 10 лучших заявок: " << duration << " микросекунд\n";
+        std::cout << "\nР’СЂРµРјСЏ РїРѕРєР°Р·Р° 10 Р»СѓС‡С€РёС… Р·Р°СЏРІРѕРє: " << duration << " РјРёРєСЂРѕСЃРµРєСѓРЅРґ\n";
     }
 };
 
 int main() {
     setlocale(LC_ALL, "ru");
-    // Создание объекта класса OrderBookTester
+    // РЎРѕР·РґР°РЅРёРµ РѕР±СЉРµРєС‚Р° РєР»Р°СЃСЃР° OrderBookTester
     int symbol;
     OrderBookTester tester;
-    // Тестирование функций класса OrderBook
+    // РўРµСЃС‚РёСЂРѕРІР°РЅРёРµ С„СѓРЅРєС†РёР№ РєР»Р°СЃСЃР° OrderBook
 
-    // Измерение производительности функций класса OrderBook
+    // РР·РјРµСЂРµРЅРёРµ РїСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚Рё С„СѓРЅРєС†РёР№ РєР»Р°СЃСЃР° OrderBook
     tester.measure_performance();
     while (1) {
-        std::cout << "\nВыберите действие:\n 1) Добавить заявку\n 2) Изменить заявку\n 3) Удалить заявку\n 4) Отобразить лучшие 10 заявок\n 5) Проверить скорость \n 6) Выйти из программы\n";
+        std::cout << "\nР’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ:\n 1) Р”РѕР±Р°РІРёС‚СЊ Р·Р°СЏРІРєСѓ\n 2) РР·РјРµРЅРёС‚СЊ Р·Р°СЏРІРєСѓ\n 3) РЈРґР°Р»РёС‚СЊ Р·Р°СЏРІРєСѓ\n 4) РћС‚РѕР±СЂР°Р·РёС‚СЊ Р»СѓС‡С€РёРµ 10 Р·Р°СЏРІРѕРє\n 5) РџСЂРѕРІРµСЂРёС‚СЊ СЃРєРѕСЂРѕСЃС‚СЊ \n 6) Р’С‹Р№С‚Рё РёР· РїСЂРѕРіСЂР°РјРјС‹\n";
         int choice;
         std::cin >> choice;
 
         if (std::cin.fail()) {
-            std::cout << "Ошибка ввода. Пожалуйста, введите число.\n";
-            std::cin.clear(); // Сброс флага ошибки
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Очистка вводного буфера
+            std::cout << "РћС€РёР±РєР° РІРІРѕРґР°. РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРІРµРґРёС‚Рµ С‡РёСЃР»Рѕ.\n";
+            std::cin.clear(); // РЎР±СЂРѕСЃ С„Р»Р°РіР° РѕС€РёР±РєРё
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // РћС‡РёСЃС‚РєР° РІРІРѕРґРЅРѕРіРѕ Р±СѓС„РµСЂР°
             continue;
         }
         switch (choice) {
@@ -254,11 +254,11 @@ int main() {
             double price;
             int value;
             int type;
-            std::cout << "\nВведите цену\n";
+            std::cout << "\nР’РІРµРґРёС‚Рµ С†РµРЅСѓ\n";
             std::cin >> price;
-            std::cout << "\nВведите объем\n";
+            std::cout << "\nР’РІРµРґРёС‚Рµ РѕР±СЉРµРј\n";
             std::cin >> value;
-            std::cout << "\nВведите тип покупка или продажа, где 0 - покупка, 1 - продажа\n";
+            std::cout << "\nР’РІРµРґРёС‚Рµ С‚РёРї РїРѕРєСѓРїРєР° РёР»Рё РїСЂРѕРґР°Р¶Р°, РіРґРµ 0 - РїРѕРєСѓРїРєР°, 1 - РїСЂРѕРґР°Р¶Р°\n";
             std::cin >> type;
             tester.AddOrder(price, value, type);
             break;
@@ -266,17 +266,17 @@ int main() {
             double price_old, price_new;
             int value_old, value_new;
             int type_old, type_new;
-            std::cout << "\nВведите цену элемента, который нужно изменить\n";
+            std::cout << "\nР’РІРµРґРёС‚Рµ С†РµРЅСѓ СЌР»РµРјРµРЅС‚Р°, РєРѕС‚РѕСЂС‹Р№ РЅСѓР¶РЅРѕ РёР·РјРµРЅРёС‚СЊ\n";
             std::cin >> price_old;
-            std::cout << "\nВведите объем элемента, который нужно изменить\n";
+            std::cout << "\nР’РІРµРґРёС‚Рµ РѕР±СЉРµРј СЌР»РµРјРµРЅС‚Р°, РєРѕС‚РѕСЂС‹Р№ РЅСѓР¶РЅРѕ РёР·РјРµРЅРёС‚СЊ\n";
             std::cin >> value_old;
-            std::cout << "\nВведите тип покупка или продажа, где 0 - покупка, 1 - продажа элемента, который нужно изменить\n";
+            std::cout << "\nР’РІРµРґРёС‚Рµ С‚РёРї РїРѕРєСѓРїРєР° РёР»Рё РїСЂРѕРґР°Р¶Р°, РіРґРµ 0 - РїРѕРєСѓРїРєР°, 1 - РїСЂРѕРґР°Р¶Р° СЌР»РµРјРµРЅС‚Р°, РєРѕС‚РѕСЂС‹Р№ РЅСѓР¶РЅРѕ РёР·РјРµРЅРёС‚СЊ\n";
             std::cin >> type_old;
-            std::cout << "\nВведите новое значение цены\n";
+            std::cout << "\nР’РІРµРґРёС‚Рµ РЅРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ С†РµРЅС‹\n";
             std::cin >> price_new;
-            std::cout << "\nВведите новое значение объема\n";
+            std::cout << "\nР’РІРµРґРёС‚Рµ РЅРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ РѕР±СЉРµРјР°\n";
             std::cin >> value_new;
-            std::cout << "\nВведите новый тип покупка или продажа, где 0 - покупка, 1 - продажа \n";
+            std::cout << "\nР’РІРµРґРёС‚Рµ РЅРѕРІС‹Р№ С‚РёРї РїРѕРєСѓРїРєР° РёР»Рё РїСЂРѕРґР°Р¶Р°, РіРґРµ 0 - РїРѕРєСѓРїРєР°, 1 - РїСЂРѕРґР°Р¶Р° \n";
             std::cin >> type_new;
             tester.ChangeOrder(price_old, value_old, type_old, price_new, value_new, type_new);
             break;
@@ -284,11 +284,11 @@ int main() {
             price;
             value;
             type;
-            std::cout << "\nВведите цену\n";
+            std::cout << "\nР’РІРµРґРёС‚Рµ С†РµРЅСѓ\n";
             std::cin >> price;
-            std::cout << "\nВведите объем\n";
+            std::cout << "\nР’РІРµРґРёС‚Рµ РѕР±СЉРµРј\n";
             std::cin >> value;
-            std::cout << "\nВведите тип покупка или продажа, где 0 - покупка, 1 - продажа\n";
+            std::cout << "\nР’РІРµРґРёС‚Рµ С‚РёРї РїРѕРєСѓРїРєР° РёР»Рё РїСЂРѕРґР°Р¶Р°, РіРґРµ 0 - РїРѕРєСѓРїРєР°, 1 - РїСЂРѕРґР°Р¶Р°\n";
             std::cin >> type;
             tester.RemoveOrder(price, value, type);
             break;
@@ -301,7 +301,7 @@ int main() {
         case 6:
             return 0;
         default:
-            std::cout << "Некорректный выбор. Попробуйте еще раз.\n";
+            std::cout << "РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІС‹Р±РѕСЂ. РџРѕРїСЂРѕР±СѓР№С‚Рµ РµС‰Рµ СЂР°Р·.\n";
         }
     }
 
