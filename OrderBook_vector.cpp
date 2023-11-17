@@ -79,7 +79,6 @@ public:
     }
 
     void change_order(const Order& old_order, const Order& new_order) {
-        // Find the maximum buy and minimum sell orders
         auto max_buy = orders.end();
         auto min_sell = orders.end();
 
@@ -96,7 +95,6 @@ public:
             }
         }
 
-        // Check conditions for changing the order
         if (old_order.type == OrderType::Sell && new_order.type == OrderType::Sell) {
             if (new_order.price < max_buy->price) {
                 std::cout << "Ошибка: Новая цена покупки ниже минимальной цены продажи\n";
