@@ -1,0 +1,7 @@
+﻿  OrderBook_priority_queue.cpp
+  OrderBook_vector.cpp
+C:\Users\juust\source\repos\OrderBook\OrderBook\OrderBook_vector.cpp(38,36): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\juust\source\repos\OrderBook\OrderBook\OrderBook_vector.cpp(48,36): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\juust\source\repos\OrderBook\OrderBook\OrderBook_vector.cpp(298,9): warning C4101: symbol: неиспользованная локальная переменная
+  Создание кода...
+  OrderBook.vcxproj -> C:\Users\juust\source\repos\OrderBook\x64\Debug\OrderBook.exe
